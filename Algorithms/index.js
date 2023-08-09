@@ -1,16 +1,11 @@
-//sum of all intergers
-function medianofArray(arr){
-    let median=0
-    let mid=Math.floor(arr.length/2)
-    console.log(mid)
-    let sortedArr=arr.sort((a,b)=>a-b)
-    console.log(sortedArr)
-    if(arr.length%2 !==0){
-        median=sortedArr[mid]
-    }else{      
-        median=(sortedArr[mid-1]+sortedArr[mid])/2;
+function solve(arr, rotations){
+    if(rotations == 0) return arr;
+    for(let i = 0; i < rotations; i++){
+      let element = arr.pop();
+      console.log("element",element)
+      arr.unshift(element);
+      console.log("arr",arr)
     }
-    return median
-}
-console.log(medianofArray([56, 67 ,30, 79]))
-
+    return arr;
+   }
+  console.log(  solve([44, 1, 22, 111], 5));

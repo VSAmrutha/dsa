@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Throttle Example</title>
+</head>
+<body>
+  <div id="scrollContainer" style="overflow: auto; height: 300px;">
+    <div id="content" style="height: 1000px;">
+    </div>
+  </div>
+  
+  <script>
+    // Throttle function
+    function throttle(func, limit) {
+      let inThrottle;
+      return function(...args) {
+        if (!inThrottle) {
+          func.apply(this, args);
+          inThrottle = true;
+          setTimeout(() => (inThrottle = false), limit);
+        }
+      };
+    }
+    function onScroll(event) {
+      console.log('Scrolling:', event.target.scrollTop);
+    }
+    const scrollContainer = document.getElementById('scrollContainer');
+    const throttleScroll = throttle(onScroll, 200); // 200ms throttle limit
+    scrollContainer.addEventListener('scroll', throttleScroll);
+  </script>
+</body>
+</html>

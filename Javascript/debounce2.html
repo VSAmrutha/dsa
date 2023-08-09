@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Debounce Example</title>
+</head>
+<body>
+  <input type="text" id="myInput" placeholder="Type something...">
+  
+  <script>
+    // Debounce function
+    function debounce(func, delay) {
+      let timer;
+      return function(...args) {
+        clearTimeout(timer);
+        timer = setTimeout(() => func.apply(this, args), delay);
+      };
+    }
+    // Function to be called on input change (replace this with your desired function)
+    function onInputChange(event) {
+      console.log('Input changed:', event.target.value);
+      // Replace this with your desired action, e.g., API call or other processing.
+    }
+    // Get the input element
+    const inputElement = document.getElementById('myInput');
+    // Debounced version of the function
+    const debounceInputChange = debounce(onInputChange, 500); // 500ms delay
+    // Attach the event listener with the debounced function
+    inputElement.addEventListener('input', debounceInputChange);
+  </script>
+</body>
+</html>
+

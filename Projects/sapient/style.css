@@ -4,16 +4,23 @@ body {
     padding:0;
     box-sizing: border-box;
   }
+  p, span{
+      font-size:0.8rem;
+  }
+  .bold{
+    font-weight: 700;
+  }
   .actionDiv{
     display:flex;
-    padding:2rem 5rem;
+    flex-direction: column;
+    padding:1rem 3rem;
     justify-content: center;
   }
   select{
-    padding:1rem 5rem;
+    padding:1rem 1rem;
     /*width:20%;*/
   }
-  #submitButton{
+  .btn{
     padding: 1rem 3rem;
     background-color: #85d6d6;
     border: none;
@@ -37,26 +44,87 @@ body {
     max-width: 100%;
     height: 10rem;
   }
-@media(min-width:768px){
+
+
+
+  /* Details Page */
+  .detailWrapper{
+    padding:1rem 2rem;
+  }
+  .detailH1{
+    text-align: center;
+    font-size:1.5rem;
+
+  }
+  .detailDivImg{
+    width:100%;
+/*text-align:center;*/
+margin:auto
+  }
+  .detailImg{
+    max-width:100%;
+  }
+  /*.detailDesc, .detailCat{
+    font-size:0.8rem;
+  }*/
+
+  .detailCat{
+    text-transform: capitalize;
+  }
+  .detailRate{
+
+  }
+  .checked {
+    color: orange;
+  }
+  .detailCount{
+
+  }
+  .detailPrice{
+
+  }
+  .detailButton{
+    
+  }
+  @media only screen and (min-width : 768px) {
   #app{
   grid-template-columns: repeat(2,1fr);
   column-gap:5px;
   }
+  .actionDiv{
+    flex-direction: row;
+    padding:2rem 5rem;
+  }
+  select{
+    padding:1rem 5rem;
+  }
+  .detailWrapper {
+    padding: 2rem 7rem;
 }
-@media(min-width:920px ){
+  .detailDivImg{
+    width:60%
+
+  }
+}
+@media only screen and (min-width : 992px) {
   #app{
   grid-template-columns: repeat(3,1fr);
-  column-gap:5px;
   }
   #submitButton{
     padding: 1rem 6rem;
   }
   select{
     padding:1rem 10rem;
-    /*width:20%;*/
   }
   .imgProduct {
     height: 15rem;
+  }
+.detailWrapper {
+    padding: 4rem 15rem;
+}
+  .detailDivImg{
+    width:40%
+
   }
 }
   

@@ -14,7 +14,7 @@ const fetchdata = async (order = "asc") => {
   console.log("productDetails",productDetails)
   productDetails.map((product,i) => {
     console.log(i,product.title);
-    htmltags +=`<div class="flexitem" ><p class="title" >${product.title}</p><img class="imgProduct" src=${product.image} alt=${product.title}/><p>${product.price}$</p></div>`;
+    htmltags +=`<div class="flexitem" ><p class="title" >${product.title}</p><a href="detailPage.html?product=${product.id}"><img class="imgProduct" src=${product.image} alt=${product.title}/></a><p>${product.price}$</p></div>`;
   });
   console.log("order",order,htmltags)
   appDiv.innerHTML = `${htmltags}`;

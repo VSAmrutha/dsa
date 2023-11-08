@@ -1,0 +1,33 @@
+
+   <!DOCTYPE html>
+   <html>
+       <head>
+           <link rel="stylesheet" href="style.css">
+           <script defer src="TodoItem.js"></script>
+           <script defer src="ExpandableList.js"></script>
+           <style>
+            h3{color:red}
+            </style>
+       </head>
+       <body>
+        <h3>html</h3>
+          <todo-item checked="true">Todo 1
+            <span slot="description">small text</span>
+          </todo-item>
+          <todo-item>Todo 2
+            <span slot="description">small text</span>
+          </todo-item>
+          <todo-item>Todo 3
+            <span slot="description">small text</span>
+          </todo-item>
+
+          <ul is="expandable-list" data-expanded>
+            <li>First</li>
+            <li>Second</li>
+            <ul is="expandable-list" data-expanded>
+              <li>Nested First</li>
+              <li> Nested Second</li>
+            </ul>
+          </ul>
+       </body>
+   </html>

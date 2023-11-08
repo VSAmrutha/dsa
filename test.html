@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head></head>
+    <body>
+        <div>
+            <h1 onmouseover="showCount()">good luck Amu</h1>
+            <div id="ncount"></div>
+            <div id="dcount"></div>
+            <div id="tcount"></div>
+        </div>
+        <script>
+            let ncount=0;
+            let dcount=0;
+            let tcount=0;
+            let dtimer;let ttimer;
+            let fireT=true
+            let ndiv=document.getElementById('ncount')
+            let ddiv=document.getElementById('dcount')
+            let tdiv=document.getElementById('tcount')
+            function showCount(){
+                console.log('hello');
+                
+                //throttle()
+                ncount++
+                ndiv.innerHTML=ncount;
+                debounce();
+                throttle();
+            }
+            function debounce(){
+                console.log("dtimer",dtimer)
+                clearInterval(dtimer);
+               
+                    dtimer=setTimeout(()=>{
+                    dcount++;
+                    ddiv.innerHTML=dcount;
+                    
+                },1000)
+                
+                }
+            function throttle(){
+                
+                if(fireT){
+                    tcount++;
+                    tdiv.innerHTML=tcount;
+                    fireT=false
+                    setTimeout(()=>{
+                    
+                        fireT=true
+                },5000)
+                }
+                
+            }
+
+        </script>
+    </body>
+</html>

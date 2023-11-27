@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Agbalumo&family=Lato:ital,wght@0,400;0,700;0,900;1,700&family=Open+Sans:wght@300;400&display=swap');
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+#main{
+    width:100%;
+    min-height: 100vh;
+    background-color: rgb(164, 208, 193);
+    display:flex;
+    flex-wrap:wrap;
+    padding-bottom: 50px;
+}
+#addBtn{
+    
+    position:fixed;
+    right:10px;
+    top:10px;
+    background-color:#2d3436;
+    color:#fff;
+    border:none;
+    outline:none;
+    cursor:pointer;
+    padding:10px;
+    border-radius: 7px;
+}
+.note{
+    width:400px;
+    height:300px;
+    background-color: #fff;
+    margin: 15px;
+    margin-top:50px;
+}
+.tool{
+    width:100%;
+    color:#fff;
+    background-color: #2d3436;
+    padding: 5px;
+    display:flex;
+    justify-content: end;
+}
+.tool i{
+    padding:5px;
+    cursor:pointer;
+}
+.note textarea{
+    border:none;
+    width:100%;
+    height:100%;
+    resize:none;
+    padding:10px;
+    font-size:18px;
+}
+.note textarea:focus{
+    outline:none;
+}

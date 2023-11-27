@@ -78,7 +78,7 @@ setTimeout(()=>{
  //-----------------------------
  //find average for IT whose pay is more than 10000
 let x2=[
-    {name:"Vany",department:"HR",pay:15000},
+    {name:"Vany",department:"HR",pay:25000},
     {name:"Dave",department:"IT",pay:30000},
     {name:"Kart",department:"IT",pay:15000},
     {name:"Dany",department:"IT",pay:10000},
@@ -105,3 +105,93 @@ let x2=[
  //she asked to correct react code, it was adding name as dependency to the useeffect
  //explain Promise.all(),Promise.allSettled(),Promise.any(),Promise.race()
  //what is prototypal inheritance, did not answer well
+
+//-----------------------------------
+//remove duplicates in array of objects
+//books = [
+//   { title: "C++", author: "Bjarne" },
+//   { title: "Java", author: "James" },
+//   { title: "Python", author: "Guido" },
+//   { title: "Java", author: "James" },
+//];
+function removeDuplicates() {
+
+	// Create an array of objects
+	books = [
+		{ title: "C++", author: "Bjarne" },
+		{ title: "Java", author: "James" },
+		{ title: "Python", author: "Guido" },
+		{ title: "Java", author: "James" },
+	];
+
+	// Declare a new array
+	let newArray = [];
+
+	// Declare an empty object
+	let uniqueObject = {};
+
+	// Loop for the array elements
+	for (let i in books) {
+
+		// Extract the title
+		objTitle = books[i]['title'];
+
+		// Use the title as the index
+		uniqueObject[objTitle] = books[i];
+	}
+
+	// Loop to push unique object into array
+	for (i in uniqueObject) {
+		newArray.push(uniqueObject[i]);
+	}
+
+	// Display the unique objects
+	console.log(newArray);
+}
+removeDuplicates();
+//---------------------------2nd method to remove duplicates
+const books = [
+   { title: "C++", author: "Bjarne" },
+   { title: "Java", author: "James" },
+   { title: "Python", author: "Guido" },
+   { title: "Java", author: "James" },
+];
+
+const ids = books.map(({ title }) => title);
+const filtered = books.filter(({ title }, index) =>
+   !ids.includes(title, index + 1));
+
+console.log(filtered);
+//-----------------------
+let person=[
+   {name:"Mona",state:"Up"},
+   {name:"Meena",state:"Goa"},
+   {name:"Lalitha",state:"Karnataka"},
+]
+//------------------------
+var arrayList = ['a', 'b', 'c', 'd', 'e', 'f'];
+            var anotherArrayList = arrayList;
+            arrayList[0] = 2;
+            console.log(anotherArrayList);
+
+//-------------------------
+//check this
+var arrayList = ['a', 'b', 'c', 'd', 'e', 'f'];
+            var anotherArrayList = arrayList;
+            arrayList = [];
+            console.log(anotherArrayList);
+//---------missing elements untill the max number in the arr
+let a=[1,4,6,7]
+function missingElement(arr){
+    let missing=[]
+    let max=Math.max(...arr)
+    for(let i=1;i<=max;i++){
+        if(!a.includes(i)){
+            missing.push(i)
+        }
+    }
+    return missing
+}
+console.log(missingElement(a))
+//difference between HOC and context api
+//example of closure used in react =>useState

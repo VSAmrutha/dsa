@@ -1,0 +1,61 @@
+const addBtn=document.querySelector('#addBtn');
+const main=document.querySelector('#main');
+let getNotes;
+
+const saveNotes=()=>{
+
+    const notes=document.querySelectorAll(".note textarea");
+    const data=[];
+    notes.forEach((note)=>{
+        data.push(note.value)
+    })
+    console.log("data",data);
+    if(data.length===0){
+        localStorage.removeItem('notes')
+    }else{
+        localStorage.setItem('notes',JSON.stringify(data))
+    }
+    
+
+}
+addBtn.addEventListener('click',()=>{
+console.log("hello")
+addNote()
+})
+const addNote=(text='')=>{
+    const note=document.createElement('div');
+    note.classList.add('note');
+    note.innerHTML=`
+    <div class="tool">
+        <i class="save fas fa-save"></i>
+        <i class="trash fas fa-trash"></i>
+    </div>
+    <textarea>${text}</textarea>
+    `;
+    note.querySelector('.trash').addEventListener(
+        'click',function(){
+            note.remove();
+            saveNotes()
+        }
+    );
+    note.querySelector('.save').addEventListener('click',function(){
+        saveNotes()
+    })
+    note.querySelector('textarea').addEventListener('focusout',function(){
+        saveNotes()
+    })
+    main.appendChild(note)
+    saveNotes()
+}
+(function(){
+    getNotes=JSON.parse(localStorage.getItem('notes'))
+    console.log("data",getNotes)
+   // saveNotes()
+   if(getNotes ===null){
+    addNote()
+   }else{
+    getNotes.forEach((note)=>{
+        addNote(note)
+    })
+   }
+})()
